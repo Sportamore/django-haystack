@@ -333,7 +333,7 @@ class SearchNode(tree.Node):
         current node. The conn_type specifies how the sub-tree is joined to the
         existing children.
         """
-        if len(self.children) == 1:
+        if len(self.children) <= 1:
             self.connector = conn_type
         elif self.connector != conn_type:
             self.children = [self._new_instance(self.children, self.connector,
