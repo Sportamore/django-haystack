@@ -11,9 +11,10 @@ from haystack.constants import ID, DJANGO_CT, DJANGO_ID
 from haystack.utils.highlighting import Highlighter
 
 try:
-    from django.utils import importlib
-except ImportError:
     import importlib
+except ImportError:
+    from django.utils import importlib
+
 
 IDENTIFIER_REGEX = re.compile('^[\w\d_]+\.[\w\d_]+\.\d+$')
 
