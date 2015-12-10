@@ -8,7 +8,10 @@ import warnings
 
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from django.utils import importlib
+try:
+    import importlib
+except ImportError:
+    from django.utils import importlib
 from django.utils.datastructures import SortedDict
 from django.utils.module_loading import module_has_submodule
 

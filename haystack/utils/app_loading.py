@@ -5,7 +5,11 @@ from django import VERSION as DJANGO_VERSION
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models.loading import get_app, get_model, get_models
-from django.utils.importlib import import_module
+
+try:
+    import importlib.import_module
+except ImportError:
+    from django.utils.importlib import import_module
 
 __all__ = ['haystack_get_models', 'haystack_load_apps']
 
