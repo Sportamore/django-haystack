@@ -4,7 +4,11 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 from django import VERSION as DJANGO_VERSION
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from django.db.models.loading import get_app, get_model, get_models
+
+from django.apps import apps
+get_model = apps.get_model
+get_app = apps.get_app
+get_models = apps.get_models
 
 from importlib import import_module
 
