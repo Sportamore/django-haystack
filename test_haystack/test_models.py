@@ -7,7 +7,7 @@ import pickle
 
 import django
 from django.test import TestCase
-from django.utils import unittest
+import unittest
 from test_haystack.core.models import AFifthMockModel, MockModel
 
 from haystack import connections

@@ -4,7 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import django
 from django.test import TestCase
-from django.utils.unittest import skipIf
+from unittest import skipIf
 
 from .models import MicroBlogPost
 

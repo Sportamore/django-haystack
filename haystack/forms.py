@@ -6,6 +6,7 @@ from django import forms
 from django.db import models
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy as _
+from django.apps import apps
 
 from haystack import connections
 from haystack.constants import DEFAULT_ALIAS
@@ -107,7 +108,7 @@ class ModelSearchForm(SearchForm):
 
         if self.is_valid():
             for model in self.cleaned_data['models']:
-                search_models.append(models.get_model(*model.split('.')))
+                search_models.append(apps.get_model(*model.split('.')))
 
         return search_models
 
