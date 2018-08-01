@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 from django import template
 from django.db import models
+from django.apps import apps
 
 from haystack.query import SearchQuerySet
 
@@ -31,7 +32,7 @@ class MoreLikeThisNode(template.Node):
                 search_models = []
 
                 for model in for_types:
-                    model_class = models.get_model(*model.split('.'))
+                    model_class = apps.get_model(*model.split('.'))
 
                     if model_class:
                         search_models.append(model_class)

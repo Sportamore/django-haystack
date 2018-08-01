@@ -9,7 +9,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
-from django.utils import unittest
+import unittest
 from django.utils.datetime_safe import date, datetime
 from whoosh.fields import BOOLEAN, DATETIME, KEYWORD, NUMERIC, TEXT
 from whoosh.qparser import QueryParser

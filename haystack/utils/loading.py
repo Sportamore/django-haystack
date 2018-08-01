@@ -9,7 +9,7 @@ import warnings
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 import importlib
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict as SortedDict
 from django.utils.module_loading import module_has_submodule
 
 from haystack.exceptions import NotHandled, SearchFieldError

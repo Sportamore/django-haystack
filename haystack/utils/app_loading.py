@@ -7,7 +7,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 from django.apps import apps
 get_model = apps.get_model
-get_app = apps.get_app
+get_app = apps.get_app_config
 get_models = apps.get_models
 
 from importlib import import_module
@@ -32,7 +32,7 @@ if DJANGO_VERSION >= (1, 7):
 
     def haystack_get_models(label):
         try:
-            app_mod = get_app(label)
+            app_mod = get_app(label).models_module
             if app_mod is not None:
                 return get_models(app_mod=app_mod)
         except ImproperlyConfigured:
@@ -71,7 +71,7 @@ else:
             app_label = app.split('.')[-1]
 
             try:
-                get_app(app_label)
+                get_app(app_label).models_module
             except ImproperlyConfigured:
                 continue  # Intentionally allow e.g. apps without models.py
 
@@ -83,7 +83,7 @@ else:
         app_or_model = is_app_or_model(label)
 
         if app_or_model == APP:
-            app_mod = get_app(label)
+            app_mod = get_app(label).models_module
             return get_models(app_mod)
         else:
             app_label, model_name = label.rsplit('.', 1)

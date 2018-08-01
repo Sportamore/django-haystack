@@ -10,7 +10,7 @@ import elasticsearch
 from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
-from django.utils import unittest
+import unittest
 
 from haystack import connections, indexes, reset_search_queries
 from haystack.inputs import AutoQuery

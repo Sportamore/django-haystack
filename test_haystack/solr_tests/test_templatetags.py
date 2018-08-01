@@ -4,7 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import django
 from django.template import Context, Template
 from django.test import TestCase
-from django.utils import unittest
+import unittest
 from mock import call, patch
 
 from ..core.models import MockModel

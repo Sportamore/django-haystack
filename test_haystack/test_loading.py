@@ -15,7 +15,7 @@ from haystack.utils import loading
 if not hasattr(unittest, "skipIf"):
     # We're dealing with Python < 2.7 and we need unittest2, which might be available from Django:
     try:
-        from django.utils import unittest
+        import unittest
     except ImportError:
         try:
             import unittest2 as unittest
